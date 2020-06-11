@@ -29,14 +29,34 @@
              
         }
     </script>
-    <title>search</title>
+    <style>
+        body{
+            background-color: #EEE;
+            font-size: 15px;
+        }
+        .namdz {
+            padding: 10px 20px 5px 20px; 
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #FFF; 
+            border: 1px solid #99FFCC;
+        }
+
+        .namdz:hover{
+            border: 1px solid green;
+        }
+        .form-control:hover{
+            border: 1px solid blue;
+        }
+    </style>
+    <title>IT4853</title>
 </head>
 
 <body>
 <div class="container">
     <h1>Search</h1>
 
-    <p>Tìm kiến "{{ input }}" trong thể loại : "{{ option }}"</p>
+    <p>Tìm kiếm "{{ input }}" trong thể loại : "{{ option }}"</p>
     <form action="/search" method="POST" onsubmit="return validateForm()">
         <div class="form-group">
             <div class="col-xs-3">
@@ -52,13 +72,13 @@
             <input type="radio" name="options" value="Tiền chiến">Tiền chiến
         </label>
         <label class="radio-inline">
-            <input type="radio" name="options" value="trịnh">Nhạc   Trịnh
+            <input type="radio" name="options" value="Nhạc trịnh">Nhạc   Trịnh
         </label>
         <label class="radio-inline">
             <input type="radio" name="options" value="Trữ tình">Trữ tình
         </label>
         <label class="radio-inline">
-            <input type="radio" name="options" value="trẻ">Nhạc trẻ
+            <input type="radio" name="options" value="Nhạc trẻ">Nhạc trẻ
         </label>
         <label class="radio-inline">
             <input type="radio" name="options" value="Cách mạng">Cách mạng
@@ -67,21 +87,18 @@
     </form>
     <br>
     <br>
-    <br>
-    <p>Tìm thấy {{c}} kết quả</p>
-    <br>
+    <p style="font-size: 16px; ">Tìm thấy <b>{{c}}</b> kết quả</p>
     <br>
     <br>
 
     {% for i in range(0, c)  %}
-    <div>
+    <div class="namdz" >
         <h4 style="text-align: left; color: blue;">{{name[i]}}</h4>
         <a  style="text-align: left; color: green;" target="_blank" href="{{link[i]}}">{{link[i]}}</a>
         <p style="text-align: left;">{{lyric[i]}}</p>
         <p style="text-align: left;">Thể loại: <i>{{tag[i]}}</i></p>
-        <br>
-    {% endfor %}
     </div>
+    {% endfor %}
 </div>
 
 </body>

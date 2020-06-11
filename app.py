@@ -27,7 +27,7 @@ def search():
             
                     results = solr.search(key,**{
                         'rows': 100000,
-                        'fq': {'tag :' + op }
+                        'fq': {'tag : "' + op +'"'}
                     })
 
                     return results
