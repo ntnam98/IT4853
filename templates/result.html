@@ -4,23 +4,16 @@
 <head>
     <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    
     <script type="text/javascript">
         function validateForm()
         {
-            var text = document.getElementById('input').value;
-                
-            if (text == ''){
+            var text1 = document.getElementById('input1').value;
+            var text2 = document.getElementById('input2').value;
+
+            if (text1 == '' && text2 == ''){
                 return false;
             }
             else{
@@ -29,77 +22,59 @@
              
         }
     </script>
-    <style>
-        body{
-            background-color: #EEE;
-            font-size: 15px;
-        }
-        .namdz {
-            padding: 10px 20px 5px 20px; 
-            margin-bottom: 20px;
-            border-radius: 8px;
-            background-color: #FFF; 
-            border: 1px solid #99FFCC;
-        }
-
-        .namdz:hover{
-            border: 1px solid green;
-        }
-        .form-control:hover{
-            border: 1px solid blue;
-        }
-    </style>
     <title>IT4853</title>
 </head>
 
 <body>
-<div class="container">
-    <h1>Search</h1>
+    <div class="container">
+        <h1 style="color: indigo;">Search</h1>
 
-    <p>Tìm kiếm "{{ input }}" trong thể loại : "{{ option }}"</p>
-    <form action="/search" method="POST" onsubmit="return validateForm()">
-        <div class="form-group">
-            <div class="col-xs-3">
-                <input class="form-control" id="input" type="text" name="user_input" />
-                <br>
-                <input type="submit" name="action" value="Search" class="btn btn-primary" />
-                <br>
-                <br>
+        <p>Tìm kiếm "{{ input }}" trong thể loại : "{{ option }}"</p>
+        <form class="form" action="/search" method="POST" onsubmit="return validateForm()">
+            <div>
+                <input class="form-control form-input" id ="input1" type="text" name="name_input" placeholder=" Tên bài hát" />
+                <input class="form-control form-input" id ="input2" type="text" name="lyric_input" placeholder=" Lời bài hát"/>
             </div>
-        </div>
-        
-        <label class="radio-inline">
-            <input type="radio" name="options" value="Tiền chiến">Tiền chiến
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="options" value="Nhạc trịnh">Nhạc   Trịnh
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="options" value="Trữ tình">Trữ tình
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="options" value="Nhạc trẻ">Nhạc trẻ
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="options" value="Cách mạng">Cách mạng
-        </label>
-        <br>
-    </form>
-    <br>
-    <br>
-    <p style="font-size: 16px; ">Tìm thấy <b>{{c}}</b> kết quả</p>
+            <br><br>
+            <div>
+            <label class="radio-inline">
+                <input type="radio" name="options" value="Tiền chiến">Tiền chiến
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="options" value="Nhạc trịnh">Nhạc Trịnh
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="options" value="Trữ tình">Trữ tình
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="options" value="Nhạc trẻ">Nhạc trẻ
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="options" value="Cách mạng">Cách mạng
+            </label>
+            </div>
+
+            <input type="submit" name="action" value="Search" class="btn btn-primary" />
+            
+        </form>
     <br>
     <br>
 
-    {% for i in range(0, c)  %}
+    {% for i in range(0,c) %}
     <div class="namdz" >
-        <h4 style="text-align: left; color: blue;">{{name[i]}}</h4>
-        <a  style="text-align: left; color: green;" target="_blank" href="{{link[i]}}">{{link[i]}}</a>
-        <p style="text-align: left;">{{lyric[i]}}</p>
-        <p style="text-align: left;">Thể loại: <i>{{tag[i]}}</i></p>
+        <h4 style=" color:royalblue;">{{name[i]}}</h4>
+        <a style=" color: green;" target="_blank" href="{{link[i]}}">{{link[i]}}</a>
+        <p style="margin-top: 5px;">{{lyric[i]}}</p>
+        <p><u>Thể loại:</u><i> {{tag[i]}}</i></p>
     </div>
     {% endfor %}
-</div>
+    </div>
+
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/jquery.mark.min.js"></script>
+    <script type="text/javascript">
+        $('.namdz').mark('{{input}}');
+    </script>
 
 </body>
 

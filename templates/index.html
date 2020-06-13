@@ -4,23 +4,16 @@
 <head>
     <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-
-        <style>
-            body{
-                background-color: #EEE;
-                font-size: 15px;
-            }
-        </style>
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    
     <script type="text/javascript">
         function validateForm()
         {
-            var text = document.getElementById('input').value;
-                
-            if (text == ''){
+            var text1 = document.getElementById('input1').value;
+            var text2 = document.getElementById('input2').value;
+
+            if (text1 == '' && text2 == ''){
                 return false;
             }
             else{
@@ -34,24 +27,20 @@
 
 <body>
     <div class="container">
-        <h1>Search</h1>
-    
-        <form action="/search" method="POST" onsubmit="return validateForm()">
-            <div class="form-group">
-                <div class="col-xs-3">
-                    <input class="form-control" id="input" type="text" name="user_input" />
-                    <br>
-                    <input type="submit" name="action" value="Search" class="btn btn-primary" />
-                    <br>
-                    <br>
-                </div>
+        <h1 style="color: indigo;">Search</h1>
+
+        <form class="form" action="/search" method="POST" onsubmit="return validateForm()">
+            <div>
+                <input class="form-control form-input" id ="input1" type="text" name="name_input" placeholder=" Tên bài hát" />
+                <input class="form-control form-input" id ="input2" type="text" name="lyric_input" placeholder=" Lời bài hát"/>
             </div>
-            
+            <br><br>
+            <div>
             <label class="radio-inline">
                 <input type="radio" name="options" value="Tiền chiến">Tiền chiến
             </label>
             <label class="radio-inline">
-                <input type="radio" name="options" value="Nhạc trịnh">Nhạc   Trịnh
+                <input type="radio" name="options" value="Nhạc trịnh">Nhạc Trịnh
             </label>
             <label class="radio-inline">
                 <input type="radio" name="options" value="Trữ tình">Trữ tình
@@ -62,10 +51,12 @@
             <label class="radio-inline">
                 <input type="radio" name="options" value="Cách mạng">Cách mạng
             </label>
-            <br>
-        </form>
-</div>
+            </div>
 
+            <input type="submit" name="action" value="Search" class="btn btn-primary" />
+            
+        </form>
+    </div>
 </body>
 
 </html>

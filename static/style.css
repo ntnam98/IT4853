@@ -1,0 +1,35 @@
+body{
+	background-color: #EEE;
+	font-size: 15px;
+}
+.form{
+	margin-left: 15px;
+}
+
+.form-input{
+	float: left;
+	width: 45%;
+	margin-right: 50px;
+}
+
+.btn{
+	margin-top: 10px;
+}
+.namdz {
+	padding: 10px 20px 5px 20px; 
+	margin: 0 20px 15px 15px;
+	border-radius: 8px;
+	background-color: #FFF; 
+	border: 1px solid #99FFCC;
+}
+
+.namdz:hover{
+	border: 1px solid green;
+}
+.form-control:hover{
+	border: 1px solid blue;
+}
+
+mark {
+	background:lightgreen;
+}
