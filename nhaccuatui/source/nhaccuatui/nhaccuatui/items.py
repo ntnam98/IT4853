@@ -10,7 +10,9 @@ import scrapy
 class NhaccuatuiItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    name  = scrapy.Field()
-    lyric = scrapy.Field()
-    link  = scrapy.Field()
+    name   = scrapy.Field()
+    lyric  = scrapy.Field()
+    link   = scrapy.Field()
+    tag    = scrapy.Field()
+    singer = scrapy.Field()
     pass
